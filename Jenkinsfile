@@ -1,5 +1,11 @@
 pipeline {
-	agent none
+	environment {
+        imagename = "rencinas123/practica_docker_hub"
+        registryCredential = "docker-hub"
+        dockerImage = ''
+    	}
+    
+	agent any
 
 	triggers {
 		pollSCM 'H/10 * * * *'
