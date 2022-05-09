@@ -23,6 +23,36 @@ pipeline {
 				sh 'test/run.sh'
 			}
 		}
+		stage('Cloning') {
+            steps {
+                git([url: 'https://github.com/rencinast/pipeline.git', branch: 'master', credentialsId: 'git-token'])
+            }
+        }
+        
+        stage('Building Image') {
+            steps {
+                script {
+                    dockerImage = docker.build imagename
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    dockerWithRegistry('', registryCredential ) {
+                        dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push('latest')
+                    }
+                }
+            }
+        }
+        stage('Remove unused images') {
+            steps {
+                sh "docker rmi $imagename:$BUILD_NUMBER"
+                sh "docker rmi $imagename:latest"
+            }
+        }
+    }
 
 	}
 
