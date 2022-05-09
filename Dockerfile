@@ -4,7 +4,7 @@ EXPOSE 8080
 
 RUN mkdir /app
 
-COPY build/libs/*.jar /app/gradle-wrapper.jar
+COPY build/libs/*.jar /jenkins/jenkisn_home/workspace/epositorio_de_github_gradle_main/complete/gradle/wrapper/gradle-wrapper.jar
 
 ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/spring-boot-application.jar"]
 
