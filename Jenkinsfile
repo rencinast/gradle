@@ -52,9 +52,9 @@ pipeline {
                 sh "docker rmi $imagename:latest"
             }
         }
-    }
+    
 
-	}
+}
 
 	post {
 		changed {
