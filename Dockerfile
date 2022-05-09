@@ -6,5 +6,5 @@ RUN mkdir /app
 
 COPY build/libs/*.jar /jenkins/jenkisn_home/workspace/epositorio_de_github_gradle_main/complete/gradle/wrapper/gradle-wrapper.jar
 
-ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/spring-boot-application.jar"]
+ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/jenkins/jenkisn_home/workspace/epositorio_de_github_gradle_main/complete/gradle/wrapper/gradle-wrapper.jar"]
 
