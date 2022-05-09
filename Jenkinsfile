@@ -1,8 +1,8 @@
 pipeline {
 	environment {
-        imagename = "rencinas123/practica_docker_hub"
-        registryCredential = "docker-hub"
-        dockerImage = ''
+        	imagename = "rencinas123/gradlejava"
+        	registryCredential = "docker-hub"
+        	dockerImage = ''
     	}
     
 	agent any
