@@ -42,6 +42,17 @@ pipeline {
                 }
             }
         }
+		
+	stage('Deploy') {
+            steps {
+                script {
+                    dockerWithRegistry('', registryCredential ) {
+                        dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push('latest')
+                    }
+                }
+            }
+        }
         
 }
 
