@@ -46,14 +46,6 @@ pipeline {
                 }
             }
         }
-        stage('Remove unused images') {
-            steps {
-                sh "docker rmi $imagename:$BUILD_NUMBER"
-                sh "docker rmi $imagename:latest"
-            }
-        }
-    
-
 }
 
 	post {
