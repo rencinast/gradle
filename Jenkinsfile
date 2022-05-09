@@ -25,7 +25,7 @@ pipeline {
 		}
 		stage('Cloning') {
             steps {
-                git([url: 'https://github.com/rencinast/gradle.git', branch: 'main', credentialsId: 'git-token'])
+                git([url: 'https://github.com/rencinast/gradle.git', branch: 'main', credentialsId: 'github'])
             }
         }
         
